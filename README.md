@@ -1,7 +1,7 @@
 #install neovim
 ```
-sudo apt install curl
-sudo apt install xsel
+sudo apt install curl -y
+sudo apt install xsel -y
 
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
