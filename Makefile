@@ -1,9 +1,8 @@
 install-neovim:
 	sudo apt install curl -y
 	sudo apt install xsel -y
-
 	sudo apt-get -y install software-properties-common
-	sudo add-apt-repository ppa:neovim-ppa/unstable
+	sudo add-apt-repository ppa:neovim-ppa/unstable -y
 	sudo apt-get -y update
 	sudo apt-get -y install neovim
 
@@ -14,4 +13,7 @@ install-node:
 	sudo apt purge -y nodejs npm
 	node -v
 
-
+set-nvim-config:
+	make install-neovim
+	make install-node
+	cp ./* ~/.config/nvim -r
