@@ -23,3 +23,8 @@ highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 highlight Folded ctermbg=none
 highlight EndOfBuffer ctermbg=none 
+
+augroup vimPackagesOpt
+  autocmd!
+  autocmd FileType html,css,javascript,typescriptreact packadd emmet-vim
+augroup END
