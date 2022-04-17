@@ -13,7 +13,12 @@ install-node:
 	sudo apt purge -y nodejs npm
 	node -v
 
+build-coc:
+	cd ~/.config/nvim/pack/mypackage/start/coc.nvim/ && npm install
+
 set-nvim-config:
 	make install-neovim
 	make install-node
 	cp ./* ~/.config/nvim -r
+	make build-coc
+
