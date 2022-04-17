@@ -17,6 +17,6 @@
 [submodule "pack/mypackage/start/vim-airline"]
 	path = pack/mypackage/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "pack/mypackage/start/emmet-vim"]
-	path = pack/mypackage/start/emmet-vim
+[submodule "pack/mypackage/opt/emmet-vim"]
+	path = pack/mypackage/opt/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
