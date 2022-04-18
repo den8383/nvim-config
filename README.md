@@ -1,4 +1,4 @@
-#install neovim
+# install neovim
 ```
 sudo apt install curl -y
 sudo apt install xsel -y
@@ -10,7 +10,7 @@ sudo apt-get install neovim
 
 ```
 
-#install node
+# install node
 ```
 sudo apt install -y nodejs npm
 sudo npm install n -g
@@ -19,13 +19,3 @@ sudo apt purge -y nodejs npm
 node -v
 ```
 
-#start neovim
-```
-$ nvim
-```
-
-
-#restart neovim
-```
-$ nvim
-```
