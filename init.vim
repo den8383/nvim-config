@@ -7,6 +7,7 @@ endif
 
 "vim-plug: plugins
 call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'cohama/lexima.vim'
