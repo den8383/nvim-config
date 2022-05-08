@@ -6,6 +6,5 @@ install-node:
 	node -v
 
 set-nvim-config:
-	make install-node
 	cp ./* ~/.config/nvim/ -r
 
