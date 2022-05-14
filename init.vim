@@ -32,6 +32,8 @@ set autoindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set clipboard=unnamedplus
+
 
 inoremap <C-h> <Esc>ha
 inoremap <C-j> <Esc>ja
