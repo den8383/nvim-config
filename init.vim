@@ -25,6 +25,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
+"LSP settings
+let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-go', 'coc-pyright', 'coc-clangd', 'coc-docker']
+
 "personal settings
 set number
 set title
