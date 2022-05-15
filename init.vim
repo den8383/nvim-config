@@ -8,6 +8,7 @@ endif
 "vim-plug: plugins
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'cohama/lexima.vim'
@@ -16,7 +17,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 
-Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'javascript', 'typescriptreact']}
+Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue']}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 call plug#end()
 
@@ -26,7 +27,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 "LSP settings
-let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-go', 'coc-pyright', 'coc-clangd', 'coc-docker']
+let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint','coc-styled-components','coc-go', 'coc-pyright', 'coc-clangd', 'coc-docker']
 
 "personal settings
 set number
