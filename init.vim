@@ -44,7 +44,7 @@ inoremap <C-j> <Esc>ja
 inoremap <C-k> <Esc>ka
 inoremap <C-l> <Esc>la
 inoremap <C-o> <Esc><Esc>o
-inoremap <C-S-o> <Esc><Esc><S-o>
+inoremap <C-O> <Esc><Esc><S-o>
 noremap <S-h> ^
 noremap <S-l> $
 
