@@ -29,6 +29,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 "LSP settings
 let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint','coc-styled-components','coc-go', 'coc-pyright', 'coc-clangd', 'coc-docker']
 
+
 "personal settings
 set number
 set title
@@ -38,7 +39,6 @@ set shiftwidth=2
 set expandtab
 set clipboard=unnamedplus
 
-
 inoremap <C-h> <Esc>ha
 inoremap <C-j> <Esc>ja
 inoremap <C-k> <Esc>ka
@@ -47,6 +47,20 @@ inoremap <C-o> <Esc><Esc>o
 inoremap <C-O> <Esc><Esc><S-o>
 noremap <S-h> ^
 noremap <S-l> $
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_help()<CR>
+
+function! s:show_help()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 colorscheme solarized
 syntax on
