@@ -32,6 +32,7 @@ let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-tsserver'
 
 "personal settings
 set number
+set signcolumn=number
 set title
 set autoindent
 set tabstop=2
@@ -43,8 +44,7 @@ inoremap <C-h> <Esc>ha
 inoremap <C-j> <Esc>ja
 inoremap <C-k> <Esc>ka
 inoremap <C-l> <Esc>la
-inoremap <C-o> <Esc><Esc>o
-inoremap <C-O> <Esc><Esc><S-o>
+inoremap <C-o> <Esc>o
 noremap <S-h> ^
 noremap <S-l> $
 
@@ -70,3 +70,4 @@ highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 highlight Folded ctermbg=none
 highlight EndOfBuffer ctermbg=none 
+highlight SignColumn ctermbg=none
