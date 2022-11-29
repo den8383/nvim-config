@@ -14,6 +14,7 @@ Plug 'tpope/vim-repeat'
 Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
+let g:indentLine_conceallevel = 0
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 
@@ -71,3 +72,4 @@ highlight LineNr ctermbg=none
 highlight Folded ctermbg=none
 highlight EndOfBuffer ctermbg=none 
 highlight SignColumn ctermbg=none
+
