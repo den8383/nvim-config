@@ -49,19 +49,35 @@ inoremap <C-o> <Esc>o
 noremap <S-h> ^
 noremap <S-l> $
 
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd : sp<CR><Plug>(coc-definition):wincmd p<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> K :call <SID>show_help()<CR>
+nnoremap <silent> gt :call <SID>split_jump()<CR><CR>
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
-function! s:show_help()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+      \   exe "normal! g'\"" |
+      \ endif
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    call feedkeys('K', 'in')
   endif
 endfunction
+
+
+function! s:split_jump()
+  !tmux split-window -v && tmux send-keys 'vim %' C-m
+  bd %
+endfunction
+
+
+
 
 colorscheme solarized
 syntax on
