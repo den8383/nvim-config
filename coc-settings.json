@@ -1,31 +1,13 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "go",
-    "java",
-    "python",
-    "cpp"
-    ],
-  "go": {
-    "gopls": {
-      "initialization_options": {
-        "analyses" : {"fillstruct":true},
-        "staticcheck": true,
-        "directoryFilters": [
-          "-debug"
-        ],
-        "diagnosticsDelay": "250ms",
-        "completeUnimported": true, "usePlaceholders": true,
-        "matcher": "fuzzy",
-        "codelenses": {
-          "gc_details": false,
-          "generate": true,
-          "test": true,
-          "tidy": true,
-          "vendor": false
-        },
-        "hoverKind": "SynopsisDocumentation"
-      }
-    }
-  }
+  "coc.preferences.formatOnSave": true,
+  "suggest.noselect": true,
+  "suggest.floatConfig": {
+    "rounded": true,
+    "border": true
+  },
+  "signature.floatConfig": {
+    "rounded": true,
+    "border": true
+  },
+  "languageserver": {}
 }
-
