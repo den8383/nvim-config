@@ -29,38 +29,14 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 "LSP settings
 let g:coc_global_extensions = ['coc-pairs','coc-json', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint','coc-styled-components','coc-go', 'coc-pyright', 'coc-clangd', 'coc-docker']
 
-
-"personal settings
-set number
-set signcolumn=number
-set title
-set autoindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set clipboard=unnamedplus
-
-inoremap <C-h> <Esc>ha
-inoremap <C-j> <Esc>ja
-inoremap <C-k> <Esc>ka
-inoremap <C-l> <Esc>la
-inoremap <C-o> <Esc>o
-noremap <S-h> ^
-noremap <S-l> $
-
+"coc keymap settigs
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-nmap <silent> gd : sp<CR><Plug>(coc-definition):wincmd p<CR>
+nnoremap <silent> gd :call <SID>split_jump()<CR><CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> gt :call <SID>split_jump()<CR><CR>
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
-
-autocmd BufReadPost *
-      \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \   exe "normal! g'\"" |
-      \ endif
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
@@ -70,14 +46,37 @@ function! ShowDocumentation()
   endif
 endfunction
 
-
 function! s:split_jump()
-  !tmux split-window -v && tmux send-keys 'vim %' C-m
-  bd %
+  let currentFileName = expand("%:p")
+  call CocAction('jumpDefinition')
+  let jumpFileName = expand("%:p")
+  if currentFileName != jumpFileName
+    wv
+    !tmux split-window -v && tmux send-keys 'vim -c :rv -c :buffer %' C-m
+    bd %
+  else 
+    !
+  endif
 endfunction
 
+"personal settings
+set number
+set signcolumn=number
+set title
+set autoindent
+set tabstop=4 
+set shiftwidth=4
+set clipboard=unnamedplus
+set viminfo='1000,f1,<500,%
+autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-
+inoremap <C-h> <Esc>ha
+inoremap <C-j> <Esc>ja
+inoremap <C-k> <Esc>ka
+inoremap <C-l> <Esc>la
+inoremap <C-o> <Esc>o
+noremap <S-h> ^
+noremap <S-l> $
 
 colorscheme solarized
 syntax on
@@ -88,4 +87,3 @@ highlight LineNr ctermbg=none
 highlight Folded ctermbg=none
 highlight EndOfBuffer ctermbg=none 
 highlight SignColumn ctermbg=none
-
