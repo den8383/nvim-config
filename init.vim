@@ -31,10 +31,11 @@ let g:coc_global_extensions = ['coc-pairs','coc-json', 'coc-html', 'coc-css', 'c
 
 "coc keymap settigs
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-nnoremap <silent> gd :call <SID>split_jump()<CR><CR>
+nmap <silent> gd <Plug>(coc-definition)gt
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gx :call <SID>split_tmux()<CR><CR>
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
@@ -46,17 +47,10 @@ function! ShowDocumentation()
   endif
 endfunction
 
-function! s:split_jump()
-  let currentFileName = expand("%:p")
-  call CocAction('jumpDefinition')
-  let jumpFileName = expand("%:p")
-  if currentFileName != jumpFileName
+function! s:split_tmux()
     wv
     !tmux split-window -v && tmux send-keys 'vim -c :rv -c :buffer %' C-m
-    bd %
-  else 
-    !
-  endif
+    bd % 
 endfunction
 
 "personal settings

@@ -1,13 +1,14 @@
 {
-  "coc.preferences.formatOnSave": true,
-  "suggest.noselect": true,
-  "suggest.floatConfig": {
-    "rounded": true,
-    "border": true
-  },
-  "signature.floatConfig": {
-    "rounded": true,
-    "border": true
-  },
-  "languageserver": {}
+	"coc.preferences.formatOnSave": true,
+	"coc.preferences.jumpCommand": "tab drop",
+	"suggest.noselect": true,
+	"suggest.floatConfig": {
+		"rounded": true,
+		"border": true
+	},
+	"signature.floatConfig": {
+		"rounded": true,
+		"border": true
+	},
+	"languageserver": {}
 }
