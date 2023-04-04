@@ -38,6 +38,8 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> gx :call <SID>split_tmux()<CR><CR>
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
+nnoremap <nowait><expr> <C-n> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-n>"
+nnoremap <nowait><expr> <C-p> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-p>"
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
