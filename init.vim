@@ -55,13 +55,14 @@ endfunction
 
 "personal settings
 set number
-set signcolumn=number
+set signcolumn=yes
 set title
 set autoindent
 set tabstop=4 
 set shiftwidth=4
 set clipboard=unnamedplus
 set viminfo='1000,f1,<500,%
+set updatetime=127
 autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 inoremap <C-h> <Esc>ha
