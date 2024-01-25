@@ -12,10 +12,14 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
-let g:indentLine_conceallevel = 0
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
+Plug 'mfussenegger/nvim-dap'
+Plug 'github/copilot.vim'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'theHamsta/nvim-dap-virtual-text'
 
 Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue']}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
@@ -27,7 +31,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 "LSP settings
-let g:coc_global_extensions = ['coc-pairs','coc-json', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint','coc-styled-components','coc-go', 'coc-jedi', 'coc-clangd', 'coc-docker']
+let g:coc_global_extensions = ['coc-pairs','coc-json', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-eslint','coc-styled-components','coc-go', 'coc-pyright', 'coc-clangd', 'coc-docker']
 
 "coc keymap settigs
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -51,7 +55,7 @@ endfunction
 
 function! s:split_tmux()
     wv
-    !tmux split-window -v && tmux send-keys 'vim -c :rv -c :buffer %' C-m
+    !tmux split-window -v -t -d 'vim -c :rv -c :buffer %'
     bd % 
 endfunction
 
@@ -84,3 +88,5 @@ highlight LineNr ctermbg=none
 highlight Folded ctermbg=none
 highlight EndOfBuffer ctermbg=none 
 highlight SignColumn ctermbg=none
+
+
